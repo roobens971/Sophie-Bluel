@@ -137,9 +137,52 @@ li:hover {
 	width: 100%;
 
 }
+
+#filters {
+	display :flex;
+	flex-direction : row;
+	gap : 10px;
+	justify-content: center;
+	height: 38px;
+	margin: 50px;
+}
+
+.Btns {
+	font-family :Syne;
+	background-color : #1D6154;
+	color : #fff;
+	cursor: pointer;
+	border-radius: 60px;
+	height: 37px;
+	font-size: 16px;
+	border :none;
+	width: 100px;
+}
+
+[data-id="1"] {
+	background-color : #fff;
+	color : #1D6154;
+	width: 100px;
+	border: 1px solid;
+}
+
+[data-id="2"] {
+	background-color : #fff;
+	color : #1D6154;
+	width: 157px;
+	border: 1px solid;
+}
+
+[data-id="3"] {
+	background-color : #fff;
+	color : #1D6154;
+	width: 198px;
+	border: 1px solid;
+}
+
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > * {
 	text-align: center;
