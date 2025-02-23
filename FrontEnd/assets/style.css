@@ -98,6 +98,21 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
+a {
+text-decoration: none;
+color: #000;
+}
+
+a:hover {
+	color: #B1663C;
+}
+
+#log{
+	color: #000;
+	font-weight: 600;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;
