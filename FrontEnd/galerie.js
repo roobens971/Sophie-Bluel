@@ -19,9 +19,12 @@ const init = async () => {
 
   filteredAllGallery(works);
 
-  // <button data-id="1"></button>
-  // Affiche des categories + addEventListener (data-id + .filter sur les works qui ont le même data-id)
-  // displayGallery(worksFiltered);
+   // Récupère le login
+   const login = await fetchLogin();
+   console.log({ login });
+
+    // Affiche le login
+    seConnecter(login);
 };
 
 init();
@@ -61,7 +64,6 @@ const displayButton = (categories) => {
     btn.innerText = category.name;
     btn.setAttribute("data-id", category.id);
     btn.classList.add("Btns");
-    // btn.classList.add("oah");
 
     filters.appendChild(btn);
   });
@@ -99,3 +101,6 @@ const filteredAllGallery = (works) => {
     });
   });
 };
+
+
+

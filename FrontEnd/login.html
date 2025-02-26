@@ -4,7 +4,7 @@
     <title>Sophie Bluel - Architecte d'intérieur</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="./assets/style.css" rel="stylesheet" />
+    <link href="./assets/login.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,10 +19,28 @@
             <ul>
                 <li>projets</li>
                 <li>contact</li>
-                <li id="log">login</li>
+                <li>login</li>
                 <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
         </nav>
     </header>
+    <section class="login">
+        <h2>Log in</h2>
+    <form>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" pattern=".+@example\.com" size="30" required>
+
+        <label for="pass">Mot de passe</label>
+        <input type="password" id="pass" name="password" minlength="8" required>
+        <input type="submit" value="Se connecter" />   
+    </form>
+     <div class="mdp">
+      <a  href="#">Mot de passe oublié</a>
+    </div>
+    </section>
+   <footer>
+    <ul><li>Mention légales</li></ul>
+   </footer>
+    <script src="login.js" type="module" defer></script>
   </body>
 </html>
