@@ -18,13 +18,6 @@ const init = async () => {
   displayButton(categories);
 
   filteredAllGallery(works);
-
-   // Récupère le login
-   const login = await fetchLogin();
-   console.log({ login });
-
-    // Affiche le login
-    seConnecter(login);
 };
 
 init();

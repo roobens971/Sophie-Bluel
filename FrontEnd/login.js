@@ -1,24 +1,21 @@
-
-/*import {fetchLogin } from "./api.js";
+import { login } from "./api.js";
+//ajoutListenerSeConnecter();
 
 const init = async () => {
   console.log("init");
 
-   // Récupère le login
-   const login = await fetchLogin();
-   console.log({ login });
+  const formulaireLogIn = document.querySelector("form");
+  formulaireLogIn.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-    // Affiche le login
-    seConnecter(connect);
-};
+    const userLogin = {
+      email: event.target.querySelector("[id=email]").value.trim(),
+      password: event.target.querySelector("[name=password]").value.trim(),
+    };
 
+  // Récupère le login
+  const connecter = await login(userLogin);
+  console.log({ userLogin });
+});
+}
 init();
-
-
-const seConnecter = (connect) => {
-
-
-  }
-*/
-
-
