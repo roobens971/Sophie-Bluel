@@ -17,9 +17,8 @@ export async function fetchWorks() {
 // login
 export async function login(userLogin) {
   console.log(userLogin);
-
   try {
-    const userLog = await fetch("http://localhost:5678/api/users/login", {
+    const response = await fetch("http://localhost:5678/api/users/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -27,7 +26,15 @@ export async function login(userLogin) {
         password: "S0phie",
       }),
     });
-    console.log(userLog);
+
+    if (!response.ok) {
+      throw new Error("Erreur dans l’identifiant ou le mot de passe");
+    }
+    const userToken = await response.json();
+    console.log({ userToken });
+    console.log("response", response);
+    window.localStorage.setItem("token", userToken.token);
+    window.location.href = "/FrontEnd";
   } catch (error) {
     console.error("Impossible de charger les travaux :", error);
   }

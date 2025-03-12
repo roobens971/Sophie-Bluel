@@ -1,5 +1,4 @@
 import { login } from "./api.js";
-//ajoutListenerSeConnecter();
 
 const init = async () => {
   console.log("init");
@@ -13,9 +12,10 @@ const init = async () => {
       password: event.target.querySelector("[name=password]").value.trim(),
     };
 
-  // Récupère le login
-  const connecter = await login(userLogin);
-  console.log({ userLogin });
-});
-}
+    // Récupère le login
+    const connecter = await login(userLogin);
+    console.log({ userLogin });
+  });
+};
 init();
+

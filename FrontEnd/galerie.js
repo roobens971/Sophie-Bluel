@@ -94,6 +94,3 @@ const filteredAllGallery = (works) => {
     });
   });
 };
-
-
-
