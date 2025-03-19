@@ -1,9 +1,43 @@
 import { fetchWorks, fetchCategories } from "./api.js";
 
+// Appeler cette fonction au bon endroit
+const logout = () => {
+  // addEventListener
+  const logoutBtn = document.getElementById("logout");
+  logoutBtn.addEventListener("click", () => {
+    localStorage.clear();
+    // faire la redirection soit homepage soit login
+    window.location.href = "/FrontEnd/login.html";
+    //logoutBtn.style.display ="none";
+    document.querySelector(".edition").style.display = "none";
+  });
+};
+
+const verifIsUserConnected = () => {
+  // TODO vérifier et afficher/cacher les éléments
+  const token = localStorage.getItem("token");
+  console.log("token", token);
+
+  if (token) {
+    // On affiche le conteneur mode édition
+    document.querySelector(".edition").style.display = "block";
+    // On affiche les boutons modifier
+    document.querySelector(".stylo_modifier").style.display = "block";
+    // on display none le bouton login et  // soit ça vaut string soit ça vaut undefined | nullon display block le bouton logout
+    document.getElementById("logout").style.display = "block";
+    document.getElementById("login").style.display = "none";
+
+    // TODO : on display none les boutons de filtres
+    document.getElementById("filters").style.visibility = "hidden";
+  }
+};
+
+
 const init = async () => {
   console.log("init");
+  verifIsUserConnected();
+  logout();
 
-  // Récupère les works
   const works = await fetchWorks();
   console.log({ works });
 
@@ -18,6 +52,29 @@ const init = async () => {
   displayButton(categories);
 
   filteredAllGallery(works);
+
+  // 1ère étape: être capable d'afficher la modal au click sur le bouton modifier
+  // 2ème étape être cacable de cacher la modal  au click sur la croix.
+  // 3ème étape : la step 1 avec la gallery
+
+  // BONUS: supprimer un element de la gallery au click sur la petite poubelle
+  // soit utilisé displayGallery en rajoutant un paramètre isEdit soit créer une nouvelle fonction displayGalleryInModal(works)
+
+  // dans index.html tu auras une <div id="modal"> // tu peux utiliser la balise dialog
+  //  <section id="step1">
+  //.     ici on aura la gallery + le bouton continuer
+  //   </section>
+
+  //  <section id="step2"> // display none par défaut
+  //.     ici il y aura le formulaire + bouton de création
+  //   </section>
+  //
+  //  </div>
+
+  // Créer un fichier modal.js dans lequel il y aura la méthode initModal()
+  // displayGalleryInModal();
+
+  // initModal(works);
 };
 
 init();
@@ -85,10 +142,10 @@ const filteredAllGallery = (works) => {
       console.log({ worksFiltered });
 
       // TODO le déplacer dans displayGallery
-      
       let gallery = document.querySelector(".gallery");
       gallery.innerHTML = "";
 
+      // TODO il ne doit y en avoir qu'un
       displayGallery(worksFiltered);
       displayGallery(worksFilteredAll);
     });

@@ -6,7 +6,6 @@ export async function fetchWorks() {
     if (!response.ok) {
       throw new Error("Erreur lors de la récupération des travaux");
     }
-
     return await response.json(); // Retourne les travaux en JSON
   } catch (error) {
     console.error("Impossible de charger les travaux :", error);
