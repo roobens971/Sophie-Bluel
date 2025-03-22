@@ -147,6 +147,10 @@ a:hover {
 	margin-bottom: 1em;
 }
 
+#logout {
+	display: none;
+}
+
 .projets_modif {
 	display: flex;
 	align-items: baseline;
@@ -156,10 +160,137 @@ a:hover {
  
 .stylo_modifier{
 	display: none;
-} 
+	cursor: pointer;
+}
 
-#logout {
+#modal{
+	display: block;
+    width: 600px;
+    height: 620px;
 	display: none;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.header_modal{
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#dialog, h3 {
+	text-align: center;
+	font-size: 26px;
+}
+
+.fa-arrow-left, .fa-xmark {
+	font-size: 20px;
+}
+
+#step1 {
+	margin: auto;
+}
+
+.ajout_photo{
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+	background-color: #E8F1F6;
+	width: 400px;
+	height: 169px;
+	border-radius: 3px;
+	margin-left: 100px;
+	margin-top: 30px;
+}
+
+.fa-image{
+	margin-top: 20px;
+	font-size: 70px;
+	color:#B9C5CC;
+}
+
+.btn_form {
+	background-color: #CBD6DC;
+	color: #306685;
+	border: none;
+	width: 180px;
+	border-radius: 50px;
+	padding: 7px 32px;
+	margin: 7px 2px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+	height: 35px;
+}
+
+.btn_form p{
+	font-weight: 500;
+}
+
+.ajout_photo form {
+	margin-top: -20px;
+	
+}
+
+#profile_pic {
+	opacity: 0;
+	
+}
+
+.ajout_photo span {
+	font-size: 10px;
+	font-weight: 400;
+}
+
+.titre_categorie {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	width: 400px;
+    margin-left: 100px;
+	margin-top: 30px;
+}
+
+.titre_categorie input, select {
+	height: 50px;
+	border: none;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
+
+.titre_categorie input[type=text], #category-select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	font-size: 14px;
+	color: rgba(68, 68, 68, 1);
+  }
+
+#category-select {
+	appearance: none;
+	cursor: pointer;
+}
+
+hr {
+	color: rgba(179, 179, 179, 1);
+	width: 400px;
+	margin-top: 40px;
+	border-bottom: 50px;
+}
+
+.valider {
+	text-align: center;
+}
+
+#validation {
+	padding: 7px;
+	border: none;
+	background-color: rgba(167, 167, 167, 1);
+	height: 35px;
+	width: 230px;
+	cursor: pointer;
 }
 
 .gallery {
@@ -172,7 +303,6 @@ a:hover {
 
 .gallery img {
 	width: 100%;
-
 }
 
 #filters {

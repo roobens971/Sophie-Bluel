@@ -7,7 +7,7 @@ const logout = () => {
   logoutBtn.addEventListener("click", () => {
     localStorage.clear();
     // faire la redirection soit homepage soit login
-    window.location.href = "/FrontEnd/login.html";
+    window.location.href = "/FrontEnd";
     //logoutBtn.style.display ="none";
     document.querySelector(".edition").style.display = "none";
   });
@@ -29,9 +29,11 @@ const verifIsUserConnected = () => {
 
     // TODO : on display none les boutons de filtres
     document.getElementById("filters").style.visibility = "hidden";
+
+    // On display block la modal
+    document.getElementById("modal").style.display = "block";
   }
 };
-
 
 const init = async () => {
   console.log("init");

@@ -21,10 +21,10 @@
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-		<div class="edition">
-			<i class="fa-regular fa-pen-to-square"></i>
-			<span>Mode édition</span>
-		</div>
+    <div class="edition">
+      <i class="fa-regular fa-pen-to-square"></i>
+      <span>Mode édition</span>
+    </div>
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
@@ -69,7 +69,58 @@
             <span>modifier</span>
           </div>
         </div>
+        <!--Modal-->
+        <dialog id="modal">
+          <section id="step1">
+            <div class="header_modal">
+              <i class="fa-solid fa-arrow-left"></i>
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <h3>Ajout photo</h3>
+            <div class="ajout_photo">
+              <i class="fa-regular fa-image"></i>
+              <button class="btn_form">
+                <p>+ Ajouter photo</p>
+                <form method="post" enctype="multipart/form-data">
+                  <label for="profile_pic"></label>
+                  <input
+                    type="file"
+                    id="profile_pic"
+                    name="profile_pic"
+                    accept=".jpg, .jpeg, .png"
+                  />
+                </form>
+              </button>
+              <span>jpg, png : 4mo max</span>
+            </div>
+            <!--Titre - Catégorie-->
+            <div class="titre_categorie">
+              <label for="name">Titre</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                minlength="4"
+                maxlength="20"
+                size="10"
+              />
 
+              <label for="category-select">Catégorie</label>
+              <select name="categorie" id="category-select">
+                <option value="">--Choisir une catégorie--</option>
+                <option value="objets">Objets</option>
+                <option value="appartements">Appartements</option>
+                <option value="hotels & restaurants">Hotels & restaurants</option>
+              </select>
+            </div>
+            <hr>
+            <div class="valider">
+              <input type="submit" value="Valider" id="validation"/>
+            </div>
+          </section>
+        </dialog>
+        <!--Les 4 boutons-->
         <div id="filters">
           <button class="Btns" data-id="all">Tous</button>
         </div>
@@ -98,5 +149,6 @@
       </nav>
     </footer>
     <script src="/FrontEnd/galerie.js" type="module" defer></script>
+    <script src="/FrontEnd/modal.js" type="module" defer></script>
   </body>
 </html>
