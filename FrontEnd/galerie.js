@@ -29,9 +29,6 @@ const verifIsUserConnected = () => {
 
     // TODO : on display none les boutons de filtres
     document.getElementById("filters").style.visibility = "hidden";
-
-    // On display block la modal
-    document.getElementById("modal").style.display = "block";
   }
 };
 

@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color: #FFFEF8;
+	background-color: #fffef8;
 }
 ol, ul {
 	list-style: none;
@@ -149,6 +149,7 @@ a:hover {
 
 #logout {
 	display: none;
+	cursor: pointer;
 }
 
 .projets_modif {
@@ -161,15 +162,16 @@ a:hover {
 .stylo_modifier{
 	display: none;
 	cursor: pointer;
+	border: none;
+	background-color: #fffef8;
 }
 
 #modal{
-	display: block;
     width: 600px;
     height: 620px;
-	display: none;
 	border-radius: 10px;
-	padding: 20px;
+	padding: 30px;
+	border: none;
 }
 
 .header_modal{
@@ -189,7 +191,43 @@ a:hover {
 
 #step1 {
 	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 0px 90px 0px 90px;
 }
+
+.fa-trash-can {
+	color: white;
+    background-color: #000;
+    width: 10px;
+    text-align: center;
+    padding: 3px;
+    font-size: 10px;
+	cursor: pointer;
+}
+
+figure .fa-trash-can,::after {
+	content: '';
+	margin-left: 55px;
+	margin-top: 7px;
+	position: absolute;
+}
+
+.btn_close {
+	margin-left: 115%;
+	cursor: pointer;
+}
+
+#step2 {
+	margin: auto;
+	display: none;
+}
+/* Modal Background */
+::backdrop {
+	background: rgba(0, 0, 0, 0.3);
+	opacity: 0.75;
+  }
 
 .ajout_photo{
 	display: flex;
@@ -280,7 +318,7 @@ hr {
 	border-bottom: 50px;
 }
 
-.valider {
+.valider, .btn_ajouter {
 	text-align: center;
 }
 
@@ -291,6 +329,31 @@ hr {
 	height: 35px;
 	width: 230px;
 	cursor: pointer;
+}
+
+#btn_ajouter_photo {
+	padding: 7px;
+	border: none;
+	background-color: rgba(29, 97, 84, 1);
+	height: 35px;
+	width: 230px;
+	cursor: pointer;
+}
+ 
+.GalleryInModal {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-row-gap: 30px;
+	grid-column-gap: 10px;
+	margin-top: 20px;
+    /* text-align: center; */
+}
+
+
+
+.GalleryInModal img{
+	width: 100%;
 }
 
 .gallery {

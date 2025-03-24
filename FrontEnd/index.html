@@ -32,7 +32,7 @@
           <li>projets</li>
           <li>contact</li>
           <li id="login"><a href="login.html">login</a></li>
-          <li id="logout" onclick="logout()">logout</li>
+          <li id="logout">logout</li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -64,14 +64,27 @@
       <section id="portfolio">
         <div class="projets_modif">
           <h2>Mes Projets</h2>
-          <div class="stylo_modifier">
+          <button class="stylo_modifier">
             <i class="fa-regular fa-pen-to-square"></i>
             <span>modifier</span>
-          </div>
+          </button>
         </div>
         <!--Modal-->
         <dialog id="modal">
+          <!--STEP 1-->
           <section id="step1">
+            <div class="btn_close">
+               <i class="fa-solid fa-xmark"></i>
+            </div>
+              <h3>Galerie photo</h3>
+              <div class="GalleryInModal"></div>
+              <hr>
+              <div class="btn_ajouter">
+                <input type="submit" value="Ajouter une photo" id="btn_ajouter_photo">
+              </div>
+          </section>
+          <!--STEP 2-->
+          <section id="step2">
             <div class="header_modal">
               <i class="fa-solid fa-arrow-left"></i>
               <i class="fa-solid fa-xmark"></i>
