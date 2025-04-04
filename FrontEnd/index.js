@@ -1,5 +1,5 @@
 import { fetchWorks, fetchCategories } from "./api.js";
-
+import { initModal } from "./modal.js";
 // Appeler cette fonction au bon endroit
 const logout = () => {
   // addEventListener
@@ -73,7 +73,7 @@ const init = async () => {
   // Créer un fichier modal.js dans lequel il y aura la méthode initModal()
   // displayGalleryInModal();
 
-  // initModal(works);
+  initModal(works);
 };
 
 init();
@@ -94,6 +94,9 @@ const displayGallery = (works) => {
     image.src = work.imageUrl;
 
     image.setAttribute("alt", work.title);
+    figure.setAttribute("data-id", work.id);
+
+    // Ajouter l'attribut data-id avec en valeur work.id
 
     gallery.appendChild(figure);
     figure.appendChild(image);

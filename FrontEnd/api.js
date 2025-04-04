@@ -57,20 +57,26 @@ export async function fetchCategories() {
 }
 
 // add works
-export async function fetchAddWorks() {
-  try {
-    const response = await fetch("http://localhost:5678/api/works");
-    console.log("Réponse API brute :", response); // Vérifie la réponse brute
 
-    if (!response.ok) {
-      throw new Error("Erreur lors de la récupération des travaux");
-    }
-    return await response.json(); // Retourne les travaux en JSON
-  } catch (error) {
-    console.error("Impossible de charger les travaux :", error);
-    return []; // Retourne un tableau vide en cas d'erreur pour éviter un plantage
-  }
-}
 
 
 // delete work
+export async function deleteModalWork(id) {
+  try {
+    const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+      method: "DELETE",
+      headers: { "Authorization": `Bearer ${localStorage.getItem("token")}`},
+    });
+
+    if (!response.ok) {
+        throw new Error("Erreur lors de la récupération des travaux");
+    }
+
+    
+
+  } catch (error) {
+    console.error("Erreur lors de la supression du projet :", error);
+   return []; // Retourne un tableau vide en cas d'erreur pour éviter un plantage
+   
+  }
+}
