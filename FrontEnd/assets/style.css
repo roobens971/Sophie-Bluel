@@ -220,6 +220,14 @@ figure .fa-trash-can,::after {
 	cursor: pointer;
 }
 
+#close_modal {
+	cursor: pointer;
+}
+
+.fa-arrow-left {
+	cursor: pointer;
+}
+
 #step2 {
 	margin: auto;
 	display: none;
@@ -350,8 +358,6 @@ hr {
 	margin-top: 30px;
     /* text-align: center; */
 }
-
-
 
 .GalleryInModal img{
 	width: 100%;

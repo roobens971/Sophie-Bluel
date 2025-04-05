@@ -72,8 +72,6 @@ export async function deleteModalWork(id) {
         throw new Error("Erreur lors de la récupération des travaux");
     }
 
-    
-
   } catch (error) {
     console.error("Erreur lors de la supression du projet :", error);
    return []; // Retourne un tableau vide en cas d'erreur pour éviter un plantage

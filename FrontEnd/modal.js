@@ -11,19 +11,42 @@ export const initModal = async (works) => {
 
 const modalWorks = (works) => {
   const dialog = document.querySelector("dialog");
-  const showButton = document.querySelector("dialog, button");
-  const closeButton = document.querySelector("dialog .fa-xmark");
+  const showModal = document.querySelector("dialog, button");
+  const closeModalStep1 = document.querySelector("dialog .fa-xmark");
+  const closeModalStep2 = document.getElementById("close_modal")
+  const ajouterUnePhoto = document.getElementById("btn_ajouter_photo");
+  const arrowLeft = document.querySelector(".fa-arrow-left")
 
-  // Le bouton "Afficher la fenêtre" ouvre le dialogue
-  showButton.addEventListener("click", () => {
+
+  // Le bouton "modifier" ouvre le dialogue
+  showModal.addEventListener("click", () => {
     dialog.showModal();
   });
 
   // Le bouton "Fermer" ferme le dialogue
-  closeButton.addEventListener("click", () => {
+  closeModalStep1.addEventListener("click", () => {
     dialog.close();
   });
+
+    closeModalStep2.addEventListener("click", () => {
+    dialog.close();
+    document.getElementById("step2").style.display = "none";
+    document.getElementById("step1").style.display = "block";
+  });
+
+    // la flèche de gauche 
+    arrowLeft.addEventListener("click", () => {
+    document.getElementById("step2").style.display = "none";
+    document.getElementById("step1").style.display = "block";
+  });
+
+  // Le bouton "ajouter une photo" ouvre la modal Ajout photo
+    ajouterUnePhoto.addEventListener("click", () => {
+    document.getElementById("step2").style.display = "block";
+    document.getElementById("step1").style.display = "none";
+  });
 };
+
 
 const displayGallery = async (works) => {
   works.forEach((work) => {
@@ -34,10 +57,8 @@ const displayGallery = async (works) => {
     let icon = document.createElement("i");
     let gallery = document.querySelector(".GalleryInModal");
 
-    let galleryHomePage = document.querySelector(".gallery")
-    // console.log(galleryHomePage);
+    let galleryHomePage = document.querySelector(".gallery");
     
-
     icon.classList.add("fa-solid", "fa-trash-can");
  
 
