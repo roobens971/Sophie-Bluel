@@ -16,7 +16,8 @@ const modalWorks = (works) => {
   const closeModalStep2 = document.getElementById("close_modal")
   const ajouterUnePhoto = document.getElementById("btn_ajouter_photo");
   const arrowLeft = document.querySelector(".fa-arrow-left")
-
+  const backDropModal = document.getElementById("modal");
+  
 
   // Le bouton "modifier" ouvre le dialogue
   showModal.addEventListener("click", () => {
@@ -27,6 +28,14 @@ const modalWorks = (works) => {
   closeModalStep1.addEventListener("click", () => {
     dialog.close();
   });
+
+// En cliquant sur le "fond du modal" la fenêtre se ferme 
+  document.getElementById("modal").addEventListener("click", function(e) {
+    if (e.target === e.currentTarget) {
+      e.stopPropagation();
+      backDropModal.close();
+    }
+  })
 
     closeModalStep2.addEventListener("click", () => {
     dialog.close();

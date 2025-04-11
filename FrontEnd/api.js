@@ -57,24 +57,40 @@ export async function fetchCategories() {
 }
 
 // add works
+export async function addFormData(formData) {
+  console.log(formData);
+  try {
+    const response = await fetch("http://localhost:5678/api/works", {
+      method: "POST",
+      body: formData,
+    });
 
+    if (!response.ok) {
+      throw new Error("Erreur lors de la récupération des travaux");
+    }
 
+    const result = await response.json();
+    console.log("Succès", result);
+    
+  } catch (error) {
+    console.error("Impossible de charger les travaux :", error);
+    return []; // Retourne un tableau vide en cas d'erreur pour éviter un plantage
+  }
+}
 
 // delete work
 export async function deleteModalWork(id) {
   try {
     const response = await fetch(`http://localhost:5678/api/works/${id}`, {
       method: "DELETE",
-      headers: { "Authorization": `Bearer ${localStorage.getItem("token")}`},
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     });
 
     if (!response.ok) {
-        throw new Error("Erreur lors de la récupération des travaux");
+      throw new Error("Erreur lors de la récupération des travaux");
     }
-
   } catch (error) {
     console.error("Erreur lors de la supression du projet :", error);
-   return []; // Retourne un tableau vide en cas d'erreur pour éviter un plantage
-   
+    return []; // Retourne un tableau vide en cas d'erreur pour éviter un plantage
   }
 }
