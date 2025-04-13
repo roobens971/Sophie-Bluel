@@ -2,6 +2,7 @@ import { addFormData } from "./api.js";
 
 const initFormData = async () => {
   console.log("initFormData");
+ const btnAjouterPhoto = document.getElementById("profile_pic");
 
   btnAjouterPhoto.addEventListener("click", async function (event) {
     const formData = new FormData();

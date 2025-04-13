@@ -7,7 +7,7 @@ const logout = () => {
   logoutBtn.addEventListener("click", () => {
     localStorage.clear();
     // faire la redirection soit homepage soit login
-    window.location.href = "/FrontEnd";
+    window.location.href = "login.html";
     //logoutBtn.style.display ="none";
     document.querySelector(".edition").style.display = "none";
   });

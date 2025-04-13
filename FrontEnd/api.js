@@ -33,9 +33,10 @@ export async function login(userLogin) {
     console.log({ userToken });
     console.log("response", response);
     window.localStorage.setItem("token", userToken.token);
-    window.location.href = "/FrontEnd";
+    window.location.href = "/Frontend";
+    
   } catch (error) {
-    console.error("Impossible de charger les travaux :", error);
+    console.error("Impossible de se connecter :", error);
   }
 }
 
