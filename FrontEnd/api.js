@@ -34,7 +34,6 @@ export async function login(userLogin) {
     console.log("response", response);
     window.localStorage.setItem("token", userToken.token);
     window.location.href = "/Frontend";
-    
   } catch (error) {
     console.error("Impossible de se connecter :", error);
   }
@@ -64,6 +63,7 @@ export async function addFormData(formData) {
     const response = await fetch("http://localhost:5678/api/works", {
       method: "POST",
       body: formData,
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     });
 
     if (!response.ok) {
@@ -72,9 +72,9 @@ export async function addFormData(formData) {
 
     const result = await response.json();
     console.log("Succès", result);
-    
+    return result;
   } catch (error) {
-    console.error("Impossible de charger les travaux :", error);
+    console.error("Erreur lors de l'envoi :", error);
     return []; // Retourne un tableau vide en cas d'erreur pour éviter un plantage
   }
 }

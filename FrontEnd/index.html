@@ -95,28 +95,27 @@
             </div>
             <h3>Ajout photo</h3>
             <div class="ajout_photo">
+              <form id="uploadForm" method="POST" enctype="multipart/form-data">
               <i class="fa-regular fa-image"></i>
-              <button class="btn_form">
                 <p>+ Ajouter photo</p>
-                <form method="post" enctype="multipart/form-data">
-                  <label for="profile_pic"></label>
+                  <label for="imageInput"></label>
                   <input
                     type="file"
-                    id="profile_pic"
-                    name="profile_pic"
-                    accept=".jpg, .jpeg, .png"
+                    id="imageInput"
+                    name="image"
+                    accept="image/*"
                   />
-                </form>
-              </button>
+                  <img id="imageUploaded" style="max-width: 400px; max-height: 150px; display: none" />
+                
               <span>jpg, png : 4mo max</span>
             </div>
             <!--Titre - Catégorie-->
             <div class="titre_categorie">
-              <label for="name">Titre</label>
+              <label for="titleInput">Titre</label>
               <input
                 type="text"
-                id="name"
-                name="name"
+                id="titleInput"
+                name="title"
                 required
                 minlength="4"
                 maxlength="20"
@@ -124,11 +123,11 @@
               />
 
               <label for="category-select">Catégorie</label>
-              <select name="categorie" id="category-select">
+              <select name="category" id="category-select">
                 <option value="">--Choisir une catégorie--</option>
-                <option value="objets">Objets</option>
-                <option value="appartements">Appartements</option>
-                <option value="hotels & restaurants">
+                <option value="1">Objets</option>
+                <option value="2">Appartements</option>
+                <option value="3">
                   Hotels & restaurants
                 </option>
               </select>
@@ -137,6 +136,7 @@
             <div class="valider">
               <input type="submit" value="Valider" id="validation" />
             </div>
+          </form>
           </section>
         </dialog>
         <!--Les 4 boutons-->

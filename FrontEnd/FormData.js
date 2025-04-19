@@ -1,25 +1,59 @@
 import { addFormData } from "./api.js";
+import { displayGalleryInModal } from "./modal.js";
+import { displayGallery } from "./index.js";
 
-const initFormData = async () => {
-  console.log("initFormData");
- const btnAjouterPhoto = document.getElementById("profile_pic");
+const imageUploadedHtml = document.getElementById("imageUploaded");
+const imageInput = document.getElementById("imageInput");
+const btnAjouterPhoto = document.getElementById("uploadForm");
 
-  btnAjouterPhoto.addEventListener("click", async function (event) {
+export const initFormData = async (works) => {
+  imageInput.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        imageUploadedHtml.src = e.target.result;
+        imageUploadedHtml.display = "block";
+
+        imageInput.display = "block";
+      };
+    }
+  });
+
+  btnAjouterPhoto.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const titleInput = document.getElementById("titleInput").value;
+    const category = document.getElementById("category-select").value;
+
     const formData = new FormData();
-   
-    formData.append("image", "Abajour Tahina");
-    formData.append("img", "abajour-tahina.png");
-    formData.append("category", "Objets");
+    formData.append("image", imageInput.files[0]);
+    formData.append("title", titleInput);
+    formData.append("category", category);
 
-    const form = {
-      image: event.target.querySelector(".gallery figure[data-id='1']"),
-    };
-
-    // Récupère le formData
-    const addData = await addFormData(formData);
     console.log({ formData });
+    // Récupère le formData
+    try {
+      const newWork = await addFormData(formData);
+      console.log({ works, newWork });
+
+      // reset le formulaire
+      uploadForm.reset();
+
+      // re mettre le display none sur imageUploadedHtml
+
+      // Mettre à jour la gallery principal et la gallery de la modal
+      const worksUpdated = [...works, newWork];
+
+      console.log({ worksUpdated });
+
+      let gallery = document.querySelector(".GalleryInModal");
+      // comment supprimer ou mettre à vide pour pouvoir re afficher la gallery avec les nouvelles data
+
+      displayGalleryInModal(worksUpdated);
+      displayGallery(worksUpdated);
+    } catch (e) {
+      console.error("une erreur est survenue", e);
+    }
   });
 };
-
-initFormData();
-

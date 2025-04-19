@@ -78,7 +78,7 @@ const init = async () => {
 
 init();
 
-const displayGallery = (works) => {
+export const displayGallery = (works) => {
   works.forEach((work) => {
     //Create a element
     let figure = document.createElement("figure");
