@@ -359,16 +359,44 @@ figure .fa-trash-can,
 }
 
 .ajout_photo form {
-  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#imageInput {
-  opacity: 0;
+#imageUploaded {
+  max-width: 400px;
+  max-height: 150px;
+  display: block;
 }
 
-.ajout_photo span {
+input[type=file] {
+  display: none;
+}
+
+.image_label {
+  margin-top: 20px;
+}
+
+.image_label .span{
+  font-weight: 500;
+  font-size: 14px;
+  background-color: rgba(203, 214, 220, 1);
+  color: rgba(48, 102, 133, 1);
+  padding: 10px 20px;
+  width: 140px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.ajout_photo .jpg {
   font-size: 10px;
   font-weight: 400;
+  margin-top: 17px;
+  color: rgba(68, 68, 68, 1);
 }
 
 .titre_categorie {

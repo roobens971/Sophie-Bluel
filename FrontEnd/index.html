@@ -94,49 +94,48 @@
               <i class="fa-solid fa-xmark" id="close_modal"></i>
             </div>
             <h3>Ajout photo</h3>
-            <div class="ajout_photo">
-              <form id="uploadForm" method="POST" enctype="multipart/form-data">
-              <i class="fa-regular fa-image"></i>
-                <p>+ Ajouter photo</p>
-                  <label for="imageInput"></label>
-                  <input
-                    type="file"
-                    id="imageInput"
-                    name="image"
-                    accept="image/*"
-                  />
-                  <img id="imageUploaded" style="max-width: 400px; max-height: 150px; display: none" />
+            <form id="uploadForm" method="POST" enctype="multipart/form-data">
+              <div class="ajout_photo">
+                <i class="fa-regular fa-image"></i>
+                <label class="image_label" for="imageInput">
+                  <span class="span">+ Ajouter photo</span>
+                </label>
                 
-              <span>jpg, png : 4mo max</span>
-            </div>
-            <!--Titre - Catégorie-->
-            <div class="titre_categorie">
-              <label for="titleInput">Titre</label>
-              <input
-                type="text"
-                id="titleInput"
-                name="title"
-                required
-                minlength="4"
-                maxlength="20"
-                size="10"
-              />
+                <input
+                  type="file"
+                  id="imageInput"
+                  name="image"
+                  accept="image/*"
+                />
+                <img id="imageUploaded" />
+                <span class="jpg">jpg, png : 4mo max</span>
+              </div>
+              <!--Titre - Catégorie-->
+              <div class="titre_categorie">
+                <label for="titleInput">Titre</label>
+                <input
+                  type="text"
+                  id="titleInput"
+                  name="title"
+                  required
+                  minlength="4"
+                  maxlength="20"
+                  size="10"
+                />
 
-              <label for="category-select">Catégorie</label>
-              <select name="category" id="category-select">
-                <option value="">--Choisir une catégorie--</option>
-                <option value="1">Objets</option>
-                <option value="2">Appartements</option>
-                <option value="3">
-                  Hotels & restaurants
-                </option>
-              </select>
-            </div>
-            <hr />
-            <div class="valider">
-              <input type="submit" value="Valider" id="validation" />
-            </div>
-          </form>
+                <label for="category-select">Catégorie</label>
+                <select name="category" id="category-select">
+                  <option value="">--Choisir une catégorie--</option>
+                  <option value="1">Objets</option>
+                  <option value="2">Appartements</option>
+                  <option value="3">Hotels & restaurants</option>
+                </select>
+              </div>
+              <hr />
+              <div class="valider">
+                <input type="submit" value="Valider" id="validation" />
+              </div>
+            </form>
           </section>
         </dialog>
         <!--Les 4 boutons-->
