@@ -14,9 +14,9 @@ export const initFormData = async (works) => {
       reader.onload = (e) => {
         imageUploadedHtml.src = e.target.result;
         imageUploadedHtml.display = "block";
-
         imageInput.display = "block";
       };
+      reader.readAsDataURL(file);
     }
   });
 
@@ -41,6 +41,8 @@ export const initFormData = async (works) => {
       uploadForm.reset();
 
       // re mettre le display none sur imageUploadedHtml
+      imageUploadedHtml.src = "";
+      imageUploadedHtml.display = "none";
 
       // Mettre à jour la gallery principal et la gallery de la modal
       const worksUpdated = [...works, newWork];
@@ -56,4 +58,9 @@ export const initFormData = async (works) => {
       console.error("une erreur est survenue", e);
     }
   });
+
+const validerModal = document.getElementById("validation");
+console.log(validerModal);
+
+  // valider.addEventListener
 };

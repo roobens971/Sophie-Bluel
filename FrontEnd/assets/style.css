@@ -365,9 +365,11 @@ figure .fa-trash-can,
 }
 
 #imageUploaded {
-  max-width: 400px;
-  max-height: 150px;
+  width: 155px;
+  max-height: 170px;
+  margin-top: -38%;
   display: block;
+
 }
 
 input[type=file] {
