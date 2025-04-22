@@ -68,7 +68,6 @@ export const displayGalleryInModal = async (works) => {
     let icon = document.createElement("i");
 
     icon.classList.add("fa-solid", "fa-trash-can");
-
     let name = work.title;
     image.src = work.imageUrl;
     image.setAttribute("alt", work.title);
@@ -82,7 +81,11 @@ export const displayGalleryInModal = async (works) => {
 
       try {
         await deleteModalWork(work.id);
+        // Supprimer de la modale - (IMAGE)
+        figure.remove();
+
         event.target.closest("figure").remove();
+        // Supprimer de la galerie principale - (IMAGE)
         document
           .querySelector(`.gallery figure[data-id="${work.id}"]`)
           .remove();

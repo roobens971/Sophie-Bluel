@@ -46,11 +46,14 @@ export const initFormData = async (works) => {
 
       // Mettre à jour la gallery principal et la gallery de la modal
       const worksUpdated = [...works, newWork];
+       console.log({ worksUpdated });
 
-      console.log({ worksUpdated });
-
-      let gallery = document.querySelector(".GalleryInModal");
+      let galleryPrincipale = document.querySelector(".gallery")
+      let galleryModal = document.querySelector(".GalleryInModal");
       // comment supprimer ou mettre à vide pour pouvoir re afficher la gallery avec les nouvelles data
+      galleryPrincipale.innerHTML = "";
+      galleryModal.innerHTML = "";
+      
 
       displayGalleryInModal(worksUpdated);
       displayGallery(worksUpdated);
@@ -59,8 +62,10 @@ export const initFormData = async (works) => {
     }
   });
 
-const validerModal = document.getElementById("validation");
-console.log(validerModal);
+// const btnValiderModal = document.getElementById("validation");
+// const dialog = document.querySelector("dialog");
 
-  // valider.addEventListener
+//   valider.addEventListener("click", () => {
+//     dialog.close()
+//   })
 };
