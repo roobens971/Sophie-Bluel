@@ -81,14 +81,10 @@ export const displayGalleryInModal = async (works) => {
 
       try {
         await deleteModalWork(work.id);
-        // Supprimer de la modale - (IMAGE)
-        figure.remove();
+         figure.remove();
 
         event.target.closest("figure").remove();
-        // Supprimer de la galerie principale - (IMAGE)
-        document
-          .querySelector(`.gallery figure[data-id="${work.id}"]`)
-          .remove();
+        document.querySelector(`.gallery figure[data-id="${work.id}"]`).remove();
       } catch (e) {
         console.log("error", e);
       }

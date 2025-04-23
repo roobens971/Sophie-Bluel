@@ -444,7 +444,7 @@ hr {
   text-align: center;
 }
 
-#validation {
+#btn_ajouter_photo, #validation {
   padding: 7px;
   border: none;
   background-color: rgba(167, 167, 167, 1);
@@ -453,13 +453,8 @@ hr {
   cursor: pointer;
 }
 
-#btn_ajouter_photo {
-  padding: 7px;
-  border: none;
+#btn_ajouter_photo:hover, #validation:hover {
   background-color: rgba(29, 97, 84, 1);
-  height: 35px;
-  width: 230px;
-  cursor: pointer;
 }
 
 .GalleryInModal {

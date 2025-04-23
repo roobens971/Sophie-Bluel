@@ -6,7 +6,13 @@ const imageUploadedHtml = document.getElementById("imageUploaded");
 const imageInput = document.getElementById("imageInput");
 const btnAjouterPhoto = document.getElementById("uploadForm");
 
+let formInitialized = false;
+
 export const initFormData = async (works) => {
+
+  if (formInitialized) return;
+  formInitialized = true;
+  
   imageInput.addEventListener("change", (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -42,10 +48,11 @@ export const initFormData = async (works) => {
 
       // re mettre le display none sur imageUploadedHtml
       imageUploadedHtml.src = "";
-      imageUploadedHtml.display = "none";
+      imageUploadedHtml.style.display = "none";
 
       // Mettre à jour la gallery principal et la gallery de la modal
       const worksUpdated = [...works, newWork];
+      works = worksUpdated;
        console.log({ worksUpdated });
 
       let galleryPrincipale = document.querySelector(".gallery")
@@ -62,10 +69,12 @@ export const initFormData = async (works) => {
     }
   });
 
-// const btnValiderModal = document.getElementById("validation");
-// const dialog = document.querySelector("dialog");
+  const btnValiderModal = document.getElementById("validation");
+  const dialog = document.querySelector("dialog");
 
-//   valider.addEventListener("click", () => {
-//     dialog.close()
-//   })
+  btnValiderModal.addEventListener("click", () => {
+    dialog.close()
+    document.getElementById("step2").style.display = "none";
+    document.getElementById("step1").style.display = "block";
+  });
 };
